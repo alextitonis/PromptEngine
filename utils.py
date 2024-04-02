@@ -1,10 +1,12 @@
+import requests
 import base64
-from io import BytesIO
-from PIL import Image
 
-def PilToBase64(image: Image, format="JPEG"):
-    buffered = BytesIO()
-    image.save(buffered, format=format)
-    img_bytes = buffered.getvalue()
-    img_str = base64.b64encode(img_bytes).decode('utf-8')
-    return img_str
+def WebImageToBase64(url: str):
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        image_base64 = base64.b64encode(response.content).decode('utf-8')
+        return image_base64
+    else:
+        print("Failed to fetch the image. Status code:", response.status_code)
+        return ""    

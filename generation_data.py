@@ -8,3 +8,4 @@ class GenerationData(BaseModel):
     width: int = 1024 
     num_inference_steps: int = 8
     guidance_scale: int = 2
+    prompt_strength: float = 0.8

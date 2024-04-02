@@ -3,3 +3,4 @@ uvicorn
 huggingface_hub
 Pillow
 python-dotenv
+replicate
