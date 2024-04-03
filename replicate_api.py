@@ -72,11 +72,9 @@ Output: """.replace("{image_prompt}", image_prompt)
         }
     )
     improved_prompt = get_text_until_first_dot_or_newline("".join(output)).replace("*", "").strip()
-    print(improved_prompt)
     return improved_prompt
 
 def generate_image_style(client: replicate.Client, image_prompt: str) -> str:
-    
     base_prompt = """<INSTRUCTIONS>
 Which one do you think would fit the best for this painting? {image_prompt}
 Just select one of the styles below, without justifying it!
@@ -106,7 +104,6 @@ Just select one of the styles below, without justifying it!
         }
     )
     style = get_text_until_first_dot_or_newline("".join(output)).replace("*", "").strip()
-    print(style)
     return style
 
     
@@ -137,5 +134,4 @@ def text_to_image(client: replicate.Client, data: GenerationData) -> str:
         return ""
     
     image_url = output[0]
-    print(image_url)
     return web_image_to_base64(image_url)

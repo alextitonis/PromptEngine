@@ -11,7 +11,7 @@ def web_image_to_base64(url: str) -> str:
         print("Failed to fetch the image. Status code:", response.status_code)
         return ""    
     
-def get_text_until_first_dot_or_newline(text):
+def get_text_until_first_dot_or_newline(text) -> str:
     dot_index = text.find('.')
     newline_index = text.find('\n')
     
